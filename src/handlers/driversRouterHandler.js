@@ -51,7 +51,7 @@ const getDriverNameHandler = async (req, res) => {
        
         const response = await getDriverName(nombreFormateado)
         console.log(response)
-        if (response && response.length === 0) return res.status(200).send("Sin resutados")
+        if (response && response.length === 0) return res.status(200).json([])
         
         return res.status(200).json(response)
 

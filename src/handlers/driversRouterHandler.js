@@ -6,18 +6,8 @@ const { getDriverId, getDriverName, getDrivers, postDriver } = require('../contr
 const getDriversHandler = async (req, res) => {
     try {
         response= await getDrivers();
-        
-         const nuevoResponse=response.length>0 && response.map(char=>{
-            if(!char.name){
-                char.name={forename:char.forename,surname:char.surname}
-            }
-            if(!char.image.url){
-                char.image={url:char.image}
-            }
-            return char
-        })
-
-        return res.status(200).json(nuevoResponse);
+         
+        return res.status(200).json(response);
     } catch (error) {
         console.log(error.message)
         res.status(400).json({ error: error.message });  //UNA MEJOR MANERA DE MANEJAR EL ERROR PUEDE SER DISCRIMINANDO A QUE INSTANCIA PERTENECE

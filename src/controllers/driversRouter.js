@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { Drivers, Teams } = require('../db')
 const { Op } = require("sequelize");  //se utiliza Op para definir operadores de consultas en SQL, con Op podemos realizar busquedas mas complejas.
+const {formatDataBDD}=require('../utils/formatDataBDD')
 
 //Search By 'forename': "http://localhost:5000/drivers?name.forename={name}"
 const URLdrivers = 'http://localhost:5000/drivers';
@@ -17,7 +18,9 @@ const getDrivers = async () => {
         include: [{ model: Teams, through: 'driver_team' }], // Incluir los teams asociados
     })
 
-     const alldrivers = [...driversBdd, ...driversAPi]
+    const driversBddFormatted = formatDataBDD(driversBdd)  //formateo los datos de la base de datos
+
+     const alldrivers = [...driversBddFormatted, ...driversAPi]
      return alldrivers
 
     }catch(error){

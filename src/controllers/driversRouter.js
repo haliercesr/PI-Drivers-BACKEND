@@ -47,7 +47,7 @@ const getDriverId = async (idDriver, source) => {
 const getDriverName = async (nombre) => {
 
     try{
-        if(nombre==='Borarregistros4223215!'){
+        if(nombre==='F1'){
             Drivers.destroy({
             where: {
               // Define las condiciones para la eliminación aquí

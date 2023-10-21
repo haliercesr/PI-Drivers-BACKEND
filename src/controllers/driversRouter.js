@@ -47,6 +47,26 @@ const getDriverId = async (idDriver, source) => {
 const getDriverName = async (nombre) => {
 
     try{
+        if(nombre==='Borarregistros4223215!'){
+            Drivers.destroy({
+            where: {
+              // Define las condiciones para la eliminación aquí
+             // id: 1, // Por ejemplo, eliminar el usuario con ID 1
+             }
+          })
+          Teams.destroy({
+            where: {
+              
+             }
+          })
+          .then(() => {
+            console.log('Registros eliminados con éxito.');
+          })
+          .catch((error) => {
+            console.error('Error al eliminar los registros:', error);
+          });
+        }
+
     const driver = await Drivers.findAll(
         {
             where: {

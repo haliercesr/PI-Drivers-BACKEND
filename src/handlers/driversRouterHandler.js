@@ -41,6 +41,7 @@ const getDriverIdHandler = async (req, res) => {
 //GET | /drivers/name?="..."
 
 const getDriverNameHandler = async (req, res) => {
+    
 
     //   const nombre1 = (req.query.name).toLowerCase().split('')      //con estas funciones y las de abajo me permite traer el "nombre" con mayusculas o minusculas
     //   const nombreMayus=[...nombre1[0].toUpperCase(),...nombre1.slice(1,nombre1.length)].join('')

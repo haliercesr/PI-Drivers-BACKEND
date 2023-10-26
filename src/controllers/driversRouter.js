@@ -34,9 +34,11 @@ const getDrivers = async () => {
 
 const getDriverId = async (idDriver, source) => {
   
-    const getDriverId = source === "api" ? (await axios.get(`${URLdrivers}/${idDriver}`)).data : await Drivers.findAll({where:{id:idDriver}});
+    const getDriverId = source === "api" ? (await axios.get(`${URLdrivers}/${idDriver}`)).data : await Drivers.findAll({where:{id:idDriver}, include: [{ model: Teams, through: 'driver_team' }]});
+    console.log(getDriverId)
+    const driversBddFormatted =source !== "api"? formatDataBDD(getDriverId):getDriverId;
     
-    return getDriverId
+    return driversBddFormatted
    
 }
 

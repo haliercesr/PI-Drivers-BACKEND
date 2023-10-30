@@ -5,6 +5,7 @@ const {filtrarTemps}=require('../utils/filtrarTemps')
 
 const getTeamsHandler=async(req,res)=>{ 
 
+    try{
     const response=await getTeams()
 
     const teamsRepetidos = response.map(char=>
@@ -21,7 +22,13 @@ const getTeamsHandler=async(req,res)=>{
      const teamsFiltrados=filtrarTemps(teamsRepetidos)  //veo los que mas se repiten y los uso en el Frontend
      
  
-    res.status(200).json(teamsFiltrados)}
+    res.status(200).json(teamsFiltrados)
+    }catch(error){ 
+        console.log(error.message)
+        return res.status(400).json({error:error.message})}
+
+}
+
 
 
 module.exports={

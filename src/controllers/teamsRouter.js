@@ -5,7 +5,7 @@ const URLdrivers = 'http://localhost:5000/drivers';
 
 const getTeams=async()=>{ 
 
-  return (await axios.get(`${URLdrivers}`)).data
+  return (await axios.get(`${URLdrivers}`)).data;
 
 }
 

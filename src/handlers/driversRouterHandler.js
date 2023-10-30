@@ -10,7 +10,7 @@ const getDriversHandler = async (req, res) => {
         return res.status(200).json(response);
     } catch (error) {
         console.log(error.message)
-        res.status(400).json({ error: error.message });  //UNA MEJOR MANERA DE MANEJAR EL ERROR PUEDE SER DISCRIMINANDO A QUE INSTANCIA PERTENECE
+        res.status(400).json({error: error.message});  //UNA MEJOR MANERA DE MANEJAR EL ERROR PUEDE SER DISCRIMINANDO A QUE INSTANCIA PERTENECE
     }
 };
 
@@ -57,7 +57,7 @@ const getDriverNameHandler = async (req, res) => {
         return res.status(200).json(response)
 
     } catch (error) {
-        
+        console.log(error.message)
          res.status(400).json({error: error.message })}
 };
 
@@ -75,7 +75,7 @@ const postDriverHandler = async (req, res) => {
         return res.status(200).json(response)
     } catch (error) {
         console.log(error.message)
-        return res.status(400).json(error)
+        return res.status(400).json({error: error.message })
     }
 }
 
